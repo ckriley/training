@@ -9,7 +9,7 @@ module.exports = function() {
 
 //Broadcast notifications
 
- this.Given(/^I login$/, function (callback) {
+ this.Given(/^I login$/, function () {
          // Write code here that turns the phrase above into concrete actions
          loginPage.go('http://localhost:8090/FedLineCashWeb/WebContent/#/login');
          loginPage.enterUser('diUser');
@@ -17,14 +17,21 @@ module.exports = function() {
          loginPage.submitTask();
        });
 
- this.When(/^I select the "([^"]*)" days radio button$/, function (arg1, callback) {
+ this.When(/^I select the "([^"]*)" days radio button$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         //element(by.css('[ng-click="bcvm.getBroadcastMessages('14')"]'));
+         //element(by.css('[ng-click="cancel()"]')); 
+         //element(by.model('ndaysago'));
        });
 
-  this.Then(/^I should see "([^"]*)" notifications$/, function (arg1, callback) {
+  this.Then(/^I should see "([^"]*)" notifications$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         //assert that there is arg1 notifications
+         //expect(element.all(by.repeater('app in userApps')).count()).toEqual(4);
+         //expect(element.all(by.repeater('bcvm.bcmessages')).count()).to.equal(arg1);
+         console.log(element.all(by.repeater("msg in bcvm.bcmessages")).length);
+         var notifications = element.all(by.repeater("msg in bcvm.bcmessages"));
+         expect(notifications.count()).to.equal(arg1);
        });
 
  
