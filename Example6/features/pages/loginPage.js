@@ -10,7 +10,7 @@ module.exports = {
   //methods
   go: function(site) {
     browser.get(site);
-    //browser.pause();
+    browser.pause();
   },
 
   enterUser: function(task1) {

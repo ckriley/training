@@ -1,4 +1,6 @@
 var loginPage = require('../pages/loginPage.js');
+var cashOrderPage = require('../pages/cashOrderPage.js');
+var cashOrderConfirmationPage = require('../pages/cashOrderConfirmationPage.js');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 
@@ -7,50 +9,29 @@ var expect = chai.expect;
 
 module.exports = function() {
 
-this.Given(/^I go to "([^"]*)"$/, function (arg1, callback) {
+ 
+this.Given(/^I login and I am on the cash order confirmation screen$/, function () {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         loginPage.go('http://localhost:8090/FedLineCashWeb/WebContent/#/login');
+         loginPage.enterUser('diUser');
+         loginPage.enterAba('111111111');
+         loginPage.submitTask();
+         element(by.linkText('FedCash Order')).click();
+         element(by.linkText('Order Form')).click();
+         cashOrderPage.enterOrder('1000','1000');
+
+
        });
 
-
-this.When(/^I enter the user "([^"]*)"$/, function (arg1, callback) {
+this.When(/^I select submit another order$/, function () {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         cashOrderPage.submitOrder();
+         cashOrderConfirmationPage.enterAnotherOrder();
        });
 
-this.When(/^the ABA Number "([^"]*)"$/, function (arg1, callback) {
+this.Then(/^I should see Cash Order screen$/, function () {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.When(/^click the button Sign In$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.Then(/^I should see the Fedline Home Page$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.Given(/^I am on the Cash Order page$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.When(/^I select endpoint "([^"]*)", Carrier "([^"]*)", Destination "([^"]*)", FIT Cash Value (\d+)\.(\d+), Total Amount (\d+)\.(\d+)$/, function (arg1, arg2, arg3, arg4, arg5, arg6, arg7, callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.When(/^I submit the order$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
-
-this.Then(/^I should see "([^"]*)" in the Confirmation Page$/, function (arg1, callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         //callback(null, 'pending');
        });
 
 };

@@ -9,19 +9,23 @@ module.exports = function() {
 
 //Login Page
 
-this.Given(/^I login$/, function (callback) {
+this.Given(/^I login to "([^"]*)" with user "([^"]*)" and aba "([^"]*)"$/, function (site, user, aba) {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         loginPage.go(site);
+         loginPage.enterUser(user);
+         loginPage.enterAba(aba);
+         loginPage.submitTask();
        });
 
-this.When(/^I am on the Home Page and I select "([^"]*)"$/, function (arg1, callback) {
+this.When(/^I am on the Home Page and I select "([^"]*)"$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+          element(by.linkText(arg1)).click();
+          element(by.linkText('About This Service')).click();
        });
 
-this.Then(/^I should see the Home Page$/, function (callback) {
+this.Then(/^I should see the Home Page$/, function () {
          // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+         
        });
 
 

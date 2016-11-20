@@ -1,10 +1,9 @@
 # features/fedline.feature
 Feature: Example feature
-  As a user I want to submit a cash order form using FIT currency
+  As a user I want to submit another cash order from the order confirmation screen
    
  
-  Scenario: Submit FIT Cash Order
-    Given I am on the Cash Order page
-    When I select endpoint "AAA", Carrier "BBB", Destination "CCC", FIT Cash Value 1000.00, Total Amount 1000.00
-    And I submit the order
-    Then I should see "1000" in the Confirmation Page
+  Scenario: Submit Another Cash Order
+    Given I login and I am on the cash order confirmation screen
+    When I select submit another order
+    Then I should see Cash Order screen
