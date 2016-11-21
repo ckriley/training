@@ -28,7 +28,7 @@ module.exports = function() {
          //expect(element.all(by.repeater('app in userApps')).count()).toEqual(4);
          //expect(element.all(by.repeater('bcvm.bcmessages')).count()).to.equal(arg1);
          //console.log(element.all(by.repeater("msg in bcvm.bcmessages")).length);
-         arg1
+         
          var notifications = element.all(by.repeater("msg in bcvm.bcmessages"));
          expect(notifications.count()).to.eventually.equal(Number(arg1));
 
