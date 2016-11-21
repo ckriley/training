@@ -1,4 +1,4 @@
-# features/fedline.feature
+# features/example4.feature
 Feature: Example feature
   As a user I want to submit a cash order form using NEW currency
    

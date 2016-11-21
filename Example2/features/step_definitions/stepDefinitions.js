@@ -19,9 +19,7 @@ module.exports = function() {
 
  this.When(/^I select the "([^"]*)" days radio button$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
-         //element(by.css('[ng-click="bcvm.getBroadcastMessages('14')"]'));
-         //element(by.css('[ng-click="cancel()"]')); 
-         //element(by.model('ndaysago'));
+         element(by.cssContainingText('label.radio-inline', '14 days ago')).click();
        });
 
   this.Then(/^I should see "([^"]*)" notifications$/, function (arg1) {
@@ -29,9 +27,10 @@ module.exports = function() {
          //assert that there is arg1 notifications
          //expect(element.all(by.repeater('app in userApps')).count()).toEqual(4);
          //expect(element.all(by.repeater('bcvm.bcmessages')).count()).to.equal(arg1);
-         console.log(element.all(by.repeater("msg in bcvm.bcmessages")).length);
+         //console.log(element.all(by.repeater("msg in bcvm.bcmessages")).length);
          var notifications = element.all(by.repeater("msg in bcvm.bcmessages"));
          expect(notifications.count()).to.equal(arg1);
+
        });
 
  
