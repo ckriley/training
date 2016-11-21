@@ -51,6 +51,9 @@ this.When(/^I submit the order$/, function () {
 this.Then(/^I should see "([^"]*)" in the Confirmation Page$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
          //some chai code here checking the confirmation page
+
+         var total = browser.findElement(by.xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/div[4]/div[2]')).getText();
+         expect(total).to.eventually.equal(arg1);
        });
 
 };
