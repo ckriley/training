@@ -9,4 +9,4 @@ Feature: Running Cucumber with Protractor
     Scenario: As a user of FedLine I want to check Notifications for the past 14 days
         Given I login
         When I select the "14" days radio button
-        Then I should see "2" notifications
+        Then I should see "3" notifications
