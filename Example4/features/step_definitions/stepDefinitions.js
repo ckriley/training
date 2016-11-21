@@ -24,7 +24,7 @@ this.Given(/^I login to "([^"]*)" and I go to the Cash Order Page$/, function (s
 
        });
 
-this.When(/^I select endpoint "([^"]*)", Carrier "([^"]*)", Destination "([^"]*)", FIT Cash Value "([^"]*)", Total Amount "([^"]*)"$/, function (arg1, arg2, arg3, arg4, arg5) {
+this.When(/^I select endpoint "([^"]*)", Carrier "([^"]*)", Destination "([^"]*)", New Cash Value "([^"]*)", Total Amount "([^"]*)"$/, function (arg1, arg2, arg3, arg4, arg5) {
          // Write code here that turns the phrase above into concrete actions
          //element(by.id('endpoint_text')).sendKeys('1111111111111');
          //element(by.cssContainingText('option', '1111111110001 FIRST PEOPLES BANK, INC.: FRB FIRST PEOPLES BANK, INC.')).click();
@@ -52,6 +52,9 @@ this.When(/^I submit the order$/, function () {
 this.Then(/^I should see "([^"]*)" in the Confirmation Page$/, function (arg1) {
          // Write code here that turns the phrase above into concrete actions
          //some chai code here checking the confirmation page
+         
+         var total = browser.findElement(by.xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/div[4]/div[2]')).getText();
+         expect(total).to.eventually.equal(arg1);
        });
 
 };
