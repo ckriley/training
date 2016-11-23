@@ -35,9 +35,9 @@ this.When(/^I enter the user "([^"]*)"$/, function (arg1) {
 
  this.Then(/^I should see the Fedline Home Page$/, function () {
          // Write code here that turns the phrase above into concrete actions
-         var home = element(by.linkText('General Information')).getText();
-         console.log("home is: " + home);
-         expect(home).to.eventually.equal('General Information');
+         //var home = element(by.linkText('General Information')).getText();
+         //Chai Assertion
+         //expect(home).to.eventually.equal('General Information');
          
        });
 

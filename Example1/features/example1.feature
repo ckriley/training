@@ -5,7 +5,7 @@ Feature: Running Cucumber with Protractor
     In order to run my E2E tests
 
     Scenario: As a user of FedLine I want to login
-        Given I go to "http://localhost:8090/FedLineCashWeb/WebContent/#/login"
+        Given I go to "http://fedline/FedLineCashWeb/WebContent/#/login"
         When I enter the user "diClient"
         And the ABA Number "111111111"
         And click the button Sign In
