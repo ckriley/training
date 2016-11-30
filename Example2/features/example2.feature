@@ -1,12 +1,9 @@
 #features/example2.feature
-Feature: Running Cucumber with Protractor
-    As a user of Protractor
-    I should be able to use Cucumber
-    In order to run my E2E tests
+Feature: As a user of FedLine I want to check Notifications for the past 14 days
 
     # Use Page Object for the login screen
-	# ng-repeat shows the number of messages
-    Scenario: As a user of FedLine I want to check Notifications for the past 14 days
+    # ng-repeat shows the number of messages
+    Scenario: Check 14 days returns 2 messages 
         Given I login
         When I select the "14" days radio button
-        Then I should see "3" notifications
+        Then I should see "2" notifications
