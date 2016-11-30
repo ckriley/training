@@ -1,10 +1,7 @@
 #features/example1.feature
-Feature: Running Cucumber with Protractor
-    As a user of Protractor
-    I should be able to use Cucumber
-    In order to run my E2E tests
+Feature: As a Fedline user I want to login 
 
-    Scenario: As a user of FedLine I want to login
+    Scenario: Valid User 
         Given I go to "http://fedline/FedLineCashWeb/WebContent/#/login"
         When I enter the user "diClient"
         And the ABA Number "111111111"
