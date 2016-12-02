@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="testingAngularApp">
+    <head>
+        <title>Testing AngularJS</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/address-list.component.js"></script>
+    </head>
+
+    <body ng-controller="testingAngularCtrl">
+        <header><h1>{{title}}</h1></header>
+        
+        <section>
+            <form ng-submit="addAddress()">
+                Street: <input name="street" type="text" ng-model="newAddress.street" />
+                City: <input name="city" type="text" ng-model="newAddress.city" />
+                Zip Code: <input name="country" type="text" ng-model="newAddress.zipcode"/>
+                <input type="submit" value="Add" />
+            </form>
+        </section>
+        
+        <section>
+            <h2>Your Trip</h2>
+            <!--<div ng-repeat="address in addresses">
+                <span>{{address.street}},{{address.city}},{{address.zipcode}}</span>
+            </div>-->
+            <!--custom component-->
+            <address-list></address-list>
+        </section>
+        
+        
+    </body>
+    
+</html>
